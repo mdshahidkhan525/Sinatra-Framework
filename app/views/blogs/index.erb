@@ -1,0 +1,38 @@
+<h1>All Blogs</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Action's</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= blog.content %></td>
+        <td>
+          <a href="/blogs/<%= blog.id %>">
+            Show
+          </a>
+        </td>
+        <td>
+          <form action="/blogs/destroy/<%= blog.id %>" method='post'>
+            <input type='submit' value='Destroy' onclick="return confirm('Are you sure?')">
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a href='/new'>
+  New Blog
+</a>
