@@ -1,5 +1,10 @@
 <h1>Edit Blog!!</h1>
-<%= erb :'blogs/form' %>
+<form action="/blogs/<%= @blog.id %>/edit" method="POST">
+Title: <input type="text" name="blog[title]" value="<%= @blog.title %>"><br>
+Content: <input type="text" name="blog[content]" value="<%= @blog.content %>"><br>
+<input type="hidden" name="_method" value="PATCH">
+<input type="submit"/>
+</form>
 <br>
 <br>
 <a href='/'>

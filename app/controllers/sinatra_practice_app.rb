@@ -35,12 +35,12 @@ class SinatraPracticeApp < Sinatra::Base
     erb :"blogs/edit"
   end
 
-  patch "/blogs/:id" do
+  patch "/blogs/:id/edit" do
     @blog = Blog.find(params[:id])
-    if @blog.update(params.slice(:title, :content))
+    if @blog.update(params[:blog])
       redirect to "/blogs/#{@blog.id}"
     else
-      erb :edit # re-render the form
+      erb :edit
     end
   end
 
