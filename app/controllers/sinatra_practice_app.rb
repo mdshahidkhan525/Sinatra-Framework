@@ -1,6 +1,7 @@
+require 'sinatra'
+require 'pry'
+
 class SinatraPracticeApp < Sinatra::Base
-  require 'sinatra'
-  require 'pry'
 
   get '/' do
     redirect to('blogs/index')
